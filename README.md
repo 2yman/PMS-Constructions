@@ -1,7 +1,7 @@
 # PSM-construction
 Projects Management System for Constructions and Real Estate
 
-php application with mvc desgin pattern
+PHP Application with MVC design pattern
 
 # TO-DO
 

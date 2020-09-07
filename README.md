@@ -5,6 +5,7 @@ PHP Application with MVC design pattern
 
 # TO-DO
 - Users mvc 
+- Restricted access
 - Projects mvc
 - Profiles
 - Home page

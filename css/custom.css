@@ -1,0 +1,8 @@
+.login{
+background-color: gainsboro;
+margin-top: 5%;
+padding: 3%;
+}
+.custom-has-error{
+    background-color: rgb(247, 160, 160);
+}

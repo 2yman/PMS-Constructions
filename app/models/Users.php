@@ -38,9 +38,48 @@ class Users extends Model
     }
   }
 
+  public function loginUserFromCookie() {
+    $user_session_model = new UserSessions();
+    $user_session = $user_session_model->findFirst([
+      'conditions' => 'user_agent = ? AND session = ?',
+      'bind' => [Session::uagent_no_version(),Cookie::get(REMEMBER_ME_COOKIE_NAME)]
+    ]);
+      if($user_session->user_id != ''){
+        $user = new self((int)$user_session->user_id);
+      
+      }
+      $user->login();
+      return self::$currentLoggedInUser;
+  }
+
+  public function logout() {
+    $user_agent = Session::uagent_no_version();
+    $this->_db->query("DELETE FROM user_sessions WHERE user_id = ? AND user_agent=?",[$this->id,$user_agent]);
+    Session::delete(CURRENT_USER_SESSION_NAME);
+    if(Cookie::exists(REMEMBER_ME_COOKIE_NAME)){
+      Cookie::delete(REMEMBER_ME_COOKIE_NAME);
+    }
+    self::$currentLoggedInUser = null;
+    return true;
+    
+  }
+
   public function findByUsername($username) {
     return $this->findFirst(['conditions'=> "username = ?", 'bind'=>[$username]]);
   }
+
+  public static function currentLoggedInUser(){
+    if(!isset($currentLoggedInUser) && Session::exists(CURRENT_USER_SESSION_NAME)){
+      
+        $U = new Users((int)Session::get(CURRENT_USER_SESSION_NAME));
+        self::$currentLoggedInUser = $U;
+      
+    }
+  
+    return self::$currentLoggedInUser;
+   
+  }
+
 
 
 }

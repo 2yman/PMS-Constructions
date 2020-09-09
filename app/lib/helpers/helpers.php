@@ -8,3 +8,7 @@ function dnd($data){
     die();
 
 }
+
+function currentUser(){
+    return Users::currentLoggedInUser();
+}

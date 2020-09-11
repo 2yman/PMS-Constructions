@@ -6,3 +6,7 @@ padding: 3%;
 .custom-has-error{
     background-color: rgb(247, 160, 160);
 }
+.pad-marg{
+    padding: 5rem;
+    margin: 5rem;
+}

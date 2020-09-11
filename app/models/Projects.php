@@ -31,5 +31,12 @@ class Projects extends  Model
         ]);
       }
 
+      public function viewUnassginedprojects()
+      {
+       $unassginedprojects  = $this->query("SELECT project_name,project_description FROM projects");
+       $unassginedprojects = $unassginedprojects->results();
+       return $unassginedprojects ;
+      }
+
 
 }

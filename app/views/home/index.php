@@ -33,18 +33,28 @@
 
     </div>
 
-    <div class="col-md-7">
-    <h3>unassgined projects</h3><br>
+    <div class='col-md-7'>
+      <h3>unassgined projects</h3><br>
+<?php
+$p = new Projects();
+$projects = $p->viewUnassginedprojects();
+foreach ($projects as $project) {
+?>
 
-    <div class="card" style="width: 50rem;">
-  <div class="card-body">
-    <h5 class="card-title">project title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-</div>
+        <div class='card' style='width: 50rem;'>
+          <div class='card-body'>
 
-    
-    </div>
+            <h5 class='card-title'><?php echo $project->project_name;?></h5>
+            <p class='card-text'><?php echo $project->project_description;?></p>
+  
+   </div>
+      </div>
+        
+<?php
+}
+?>
+      
+      </div>
 </div>
 
 

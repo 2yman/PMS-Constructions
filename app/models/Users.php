@@ -64,6 +64,21 @@ class Users extends Model
     
   }
 
+  public function registerNewUser($params)
+  {
+    $this->assign($params);
+    $this->password = password_hash($this->password,PASSWORD_DEFAULT);
+    $this->insert([
+      'username'=>$this->username,
+      'password'=> $this->password,
+      'fname'=>$this->fname,
+      'lname'=>$this->lname,
+      'type'=>$this->type,
+      'email'=>$this->email
+    ]);
+    
+  }
+
   public function findByUsername($username) {
     return $this->findFirst(['conditions'=> "username = ?", 'bind'=>[$username]]);
   }

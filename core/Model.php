@@ -47,21 +47,20 @@ class Model {
   }
 
   public function save() {
-    $this->validator();
-    if($this->_validates){
-      $this->beforeSave();
-      $fields = H::getObjectProperties($this);
+      $fields =[];
+      foreach ($this->get_columns() as $column) {
+        $fields[$column] = $this-$column;
+      }
       // determine whether to update or insert
       if(property_exists($this, 'id') && $this->id != '') {
         $save = $this->update($this->id, $fields);
-        $this->afterSave();
+       
         return $save;
       } else {
         $save = $this->insert($fields);
-        $this->afterSave();
         return $save;
       }
-    }
+    
     return false;
   }
 

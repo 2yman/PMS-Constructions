@@ -4,8 +4,7 @@ Projects Management System for Constructions and Real Estate
 PHP Application with MVC design pattern
 
 # TO-DO
-- Users mvc 
-- Restricted access
+- acl system
 - Projects mvc
 - Profiles
 - Home page

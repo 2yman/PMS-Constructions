@@ -23,8 +23,8 @@ class Projects extends  Model
 
       public function addproject($params)
       {
-        $this->project_name =$params['projectname'];
-        $this->project_description =$params['description'];
+        $this->project_name =input::get('projectname');
+        $this->project_description =input::get('description');
         $this->insert([
           'project_name'=>$this->project_name,
           'project_description'=> $this->project_description

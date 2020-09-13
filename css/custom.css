@@ -7,9 +7,9 @@ padding: 3%;
     background-color: rgb(247, 160, 160);
 }
 .pad-marg{
-    padding: 5rem;
-    margin: 5rem;
+    padding-right: 1rem;
+    margin-right: 1rem;
 }
 .card{
-    margin: 5rem;
+    margin: 1rem;
 }

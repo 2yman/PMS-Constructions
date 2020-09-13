@@ -41,14 +41,15 @@ $projects = $p->viewUnassginedprojects();
 foreach ($projects as $project) {
 ?>
 
-        <div class='card' style='width: 50rem;'>
-          <div class='card-body'>
+<div class="card" style='width: 50rem;'>
+  <h5 class="card-header card-title"><?php echo $project->project_name;?></h5>
+  <div class="card-body">
+  <p class='card-text'><?php echo $project->project_description;?></p>
+  <p class="card-text"><small class="text-muted"> submited by <?php echo $project->customer;?></small></p>
+  </div>
 
-            <h5 class='card-title'><?php echo $project->project_name;?></h5>
-            <p class='card-text'><?php echo $project->project_description;?></p>
-  
-   </div>
-      </div>
+</div>
+
         
 <?php
 }

@@ -27,13 +27,14 @@ class Projects extends  Model
         $this->project_description =input::get('description');
         $this->insert([
           'project_name'=>$this->project_name,
-          'project_description'=> $this->project_description
+          'project_description'=> $this->project_description,
+          'customer' => Users::currentLoggedInUser()->username
         ]);
       }
 
       public function viewUnassginedprojects()
       {
-       $unassginedprojects  = $this->query("SELECT project_name,project_description FROM projects");
+       $unassginedprojects  = $this->query("SELECT project_name,project_description,customer FROM projects");
        $unassginedprojects = $unassginedprojects->results();
        return $unassginedprojects ;
       }

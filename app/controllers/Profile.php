@@ -8,7 +8,7 @@ class Profile extends Controller {
 
     public function indexAction() {
      
-        $this->view->render('home/index');
+        $this->view->render('profile/admin');
 
       }
     }
